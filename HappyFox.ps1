@@ -1,8 +1,6 @@
 #
 # HappyFox.ps1 - HappyFox
 #
-
-
 $Log_MaskableKeys = @(
     'Password',
     "proxy_password"
@@ -14,7 +12,6 @@ $Global:ContactGroupsCacheTime = Get-Date
 $Global:Assets = [System.Collections.ArrayList]@()
 $Global:Contacts = [System.Collections.ArrayList]@()
 $Global:ContactGroups = [System.Collections.ArrayList]@()
-
 
 $Properties = @{
     Assets = @(
@@ -1711,7 +1708,11 @@ function Idm-statusesRead {
         }
 }
 
-<# Disabled due to large number of requests required for tickets
+<# 
+    Disabled due to large number of requests required for tickets
+    Future: Determine if necessary, if so use q parameter to filter tickets
+
+
 function Idm-ticketsRead {
     param (
         # Mode
@@ -1869,7 +1870,6 @@ function Idm-userCustomFieldsRead {
 #
 #   Internal Functions
 #
-
 function Execute-HappyFoxRequest {
     param (
         [hashtable] $SystemParams,
@@ -1898,7 +1898,6 @@ function Execute-HappyFoxRequest {
         }
     }
 
-   
      if($SystemParams.use_proxy)
                 {
                     Add-Type @"
@@ -1966,10 +1965,6 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
         $splat['Body'].Page++
     } while ($true)
-
-    
-
-
 }
 
 function Get-ClassMetaData {
