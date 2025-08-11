@@ -58,7 +58,7 @@ $Properties = @{
     )
     Contacts = @(
         @{ name = 'id';           						    options = @('default','key')}
-        @{ name = 'name';           						options = @('default','create')}
+        @{ name = 'name';           						options = @('default','create','update')}
         @{ name = 'is_login_enabled';           			options = @('default','update')}
         @{ name = 'primary_phone_id';           			options = @('default')}
         @{ name = 'primary_phone_number';           		options = @('default')}
@@ -1893,7 +1893,7 @@ function Execute-HappyFoxRequest {
         $splat["Body"] = $Body
     } else {
         $splat["Body"] = @{
-            page = 0
+            page = 1
             size = 50
         }
     }
